@@ -1,18 +1,18 @@
 document.getElementById('numEstudiantes').addEventListener('input', function() {
-    generarCamposEstudiantes(this.value);
+    generarCamposEstudiantes(this.value);hnl
   });
   
   document.getElementById('formulario').addEventListener('submit', function(e) {
-    e.preventDefault();
+    e.preventDefault();//esto me ayuda a evitar que la pagina se recargue cuando envio el formulario
     calcularNotas();
   });
   
   function generarCamposEstudiantes(numEstudiantes) {
     const estudiantesDiv = document.getElementById('estudiantes');
-    estudiantesDiv.innerHTML = ''; // Limpiar los campos anteriores
+    estudiantesDiv.innerHTML = ''; // limpia los campos anteriores
   
     for (let i = 0; i < numEstudiantes; i++) {
-      estudiantesDiv.innerHTML += `
+      estudiantesDiv.innerHTML +=/*añado nuevo formulario por cada iteracion*/`  
         <h3>Estudiante ${i + 1}</h3>
         <label>Nombre del estudiante:</label>
         <input type="text" id="nombre${i}">
@@ -49,9 +49,9 @@ document.getElementById('numEstudiantes').addEventListener('input', function() {
   }
   
   function calcularNotas() {
-    const numEstudiantes = document.getElementById('numEstudiantes').value;
+    const numEstudiantes = document.getElementById('numEstudiantes').value;//obtengo el número de estudiantes a partir del campo de entrada
     const resultadosDiv = document.getElementById('resultado');
-    resultadosDiv.innerHTML = ''; // Limpiar resultados anteriores
+    resultadosDiv.innerHTML = ''; // Limpiar resultados anteriores si cambio el numero de estudiantes que quiero ingresar
   
     let aprobados = 0;
   
@@ -74,7 +74,7 @@ document.getElementById('numEstudiantes').addEventListener('input', function() {
       }
   
       resultadosDiv.innerHTML += `
-        <p>${nombre} (${materia}): Nota Final = ${notaFinal.toFixed(2)} - ${estado}</p>
+        <p>${nombre} (${materia}): Nota Final = ${notaFinal.toFixed(2)}/*metodo que redondea la nota final a dos decimales*/ - ${estado}</p>
       `;
     }
   
